@@ -56,7 +56,7 @@ void packet_capture(__u_char *args, const struct pcap_pkthdr *header,
 {
 struct ethheader *eth = (struct ethheader *)packet;
 struct ipheader *ip = (struct ipheader *)(packet + sizeof(struct ethheader));
-struct tcpheader *tcp = (struct tcpheader *)(packet + sizeof(struct ethheader))+ ip->iph_ihl * 4;
+struct tcpheader *tcp = (struct tcpheader *)(packet + sizeof(struct ethheader)+ ip->iph_ihl * 4);
 
 // Ethernet 출력
 printf("(Ethernet)Source MAC: %s\n", ether_ntoa((struct ether_addr *)eth->ether_shost));
